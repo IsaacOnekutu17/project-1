@@ -1,0 +1,15 @@
+---
+- name: Apply manifest files
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Apply Kubernetes deployment manifest
+      k8s:
+        state: present
+        src: /home/ubuntu/deployment.yaml
+
+    - name: Apply Kubernetes service manifest
+      k8s:
+        state: present
+        src: /home/ubuntu/service.yaml

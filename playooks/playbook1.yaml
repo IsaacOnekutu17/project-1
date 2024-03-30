@@ -1,0 +1,13 @@
+---
+- name: Deploy container
+  hosts: all
+  become: true
+  tasks:
+    - name: Deploy the container
+      docker_container:
+        image: development17/industryapp:latest
+        name: industryapp
+        state: started
+        auto_remove: true
+        ports:
+          - "2400:8080"

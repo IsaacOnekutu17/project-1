@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: industryapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: industryapp
+  template:
+    metadata:
+      labels:
+        app: industryapp
+    spec:
+      containers:
+      - name: industryapp-container
+        image: development17/industryapp:latest
+        ports:
+        - containerPort: 8080
